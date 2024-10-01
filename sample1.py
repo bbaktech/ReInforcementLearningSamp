@@ -66,6 +66,7 @@ class DQNAgent:
             print(target_f)
             # print(target_f.shape)
             print(len(state))
+            #target_f shape is (1,2) not a single entry
             self.model.fit(state, target_f, epochs=1) 
         
         if gt (self.epsilon , self.epsilon_min):
@@ -84,6 +85,7 @@ class DQNAgent:
 agent = DQNAgent(state_size, action_size)
 
 #DQN agent interacting with an OpenAI Gym environment
+#n_episodes indecates number of time to play to learn
 for e in range(n_episodes):
     state = env.reset()
     state = state[0]
